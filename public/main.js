@@ -34,6 +34,7 @@ $(function () {
 	$.ajax({
 		method: "GET",
 		url: '/messages',
+		dataType: 'json',
 		success: function (msgs) {
 			msgs.forEach(function (msg) {
 				renderQuote(msg);

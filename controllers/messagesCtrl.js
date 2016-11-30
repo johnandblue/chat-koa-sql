@@ -5,9 +5,15 @@
 var Message = require('../models/messages.js')
 const messagesCtrl = {};
 
+// messagesCtrl.getMessages = function* () {
+//   this.body = Message.getAll();
+// };
+
 messagesCtrl.getMessages = function* () {
-  this.body = Message.getAll();
+  this.body = Message.getAllMessages();
 };
+
+
 
 var createMsg = function (body) {
   let timestamp = Date.now();

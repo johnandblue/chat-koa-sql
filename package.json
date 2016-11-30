@@ -23,6 +23,7 @@
     "koa-request": "^1.0.0",
     "koa-response": "^1.0.4",
     "koa-router": "^5.4.0",
-    "koa-static": "^2.0.0"
+    "koa-static": "^2.0.0",
+    "mysql": "^2.12.0"
   }
 }

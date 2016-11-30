@@ -1,11 +1,12 @@
 
-var koa = require('koa');
-var fs = require('fs');
-var app = koa();
+const app = require('koa')();
+const fs = require('fs');
+const serve = require('koa-static');
+const bodyParser = require('koa-bodyparser')();//require('koa-bodyparser');
+
 // var statuses = require('statuses')
-var serve = require('koa-static');
-var routes = require('./routes.js')
-var bodyParser = require('koa-bodyparser')();//require('koa-bodyparser');
+const db = require('./config/db.js');
+const routes = require('./routes.js');
 // var request = require('koa-request');
 // var response = require('koa-response');
 
@@ -15,16 +16,12 @@ app.use(serve('./public'));
 app.use(bodyParser);
 app.use(routes.routes());
 
-// app.on('error', function(err){
-//   log.error('server error', err);
-// });
 
-// statuses['404'] = 'No Barbie Found';
 app.use(function* (next) {
   if (this.status === 404) this.body = notFound;
 });
 
-app.listen(3000);
-console.log('Listening Barbie Chat Koa...');
-
-module.exports = app;
+db.connect(function (err) {
+  if (err) console.error('error connecting: ' + err.stack);
+  app.listen(3000);
+});
