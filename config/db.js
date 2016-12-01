@@ -1,8 +1,8 @@
 
-// 
-// module.exports = require('mysql').createConnection({
-//   host     : 'localhost',
-//   user     : 'root',
-//   password : 'password',
-//   database : 'testdb'
-// });
+const mongoose = require('mongoose');
+
+mongoose.Promise = global.Promise;
+
+mongoose.connect('mongodb://localhost/test');
+
+module.exports = mongoose.connection;
