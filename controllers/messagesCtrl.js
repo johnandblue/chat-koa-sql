@@ -1,6 +1,4 @@
 'use strict';
-// var koa = require('koa'),
-//   router = require('koa-router')();
 
 var Message = require('../models/messages.js')
 const messagesCtrl = {};
@@ -10,10 +8,8 @@ const messagesCtrl = {};
 // };
 
 messagesCtrl.getMessages = function* () {
-  this.body = Message.getAllMessages();
+  this.body = yield Message.getAllMessages();
 };
-
-
 
 var createMsg = function (body) {
   let timestamp = Date.now();
@@ -31,9 +27,7 @@ messagesCtrl.deleteMsgs = function* () {
 }
 
 messagesCtrl.postMessage = function* () {
-  console.log('request body',this.body);
-  let tempMsg = createMsg(this.request.body);
-  Message.postMessage(tempMsg);
+  Message.postMessage(this.request.body);
   this.status = 201;
 }
 

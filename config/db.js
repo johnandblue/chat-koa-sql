@@ -3,6 +3,6 @@
 module.exports = require('mysql').createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'Ultimo19',
+  password : 'password',
   database : 'testdb'
 });

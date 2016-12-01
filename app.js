@@ -2,13 +2,9 @@
 const app = require('koa')();
 const fs = require('fs');
 const serve = require('koa-static');
-const bodyParser = require('koa-bodyparser')();//require('koa-bodyparser');
-
-// var statuses = require('statuses')
+const bodyParser = require('koa-bodyparser')();
 const db = require('./config/db.js');
 const routes = require('./routes.js');
-// var request = require('koa-request');
-// var response = require('koa-response');
 
 const notFound = fs.readFileSync('./public/404-barbie.html', 'utf8');
 

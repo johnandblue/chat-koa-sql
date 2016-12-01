@@ -24,6 +24,7 @@ function parseQuote(response) {
 
 function renderQuote (quote) {
 	let classUser = 'userBallon';
+	console.log(quote.user);
 	if (quote.user === 'forismatic') classUser = 'userBallon2';
 	$('.chatbox').append('<div class="'+ classUser +'">'+ quote.content + '</div> ');
 }

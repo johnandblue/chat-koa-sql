@@ -1,18 +1,11 @@
-// Example model
-
 const dbPath = __dirname + '/db.json';
-const fs = require('fs')
-// const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+const fs = require('fs');
 const db = require('../config/db.js');
-
-
-
 const Message = {}
 
 // Message.getAll = function() {
 //   return db.msgs;
 // }
-
 
 Message.getAllMessages = function () {
   return new Promise(function (resolve, reject) {
@@ -24,12 +17,13 @@ Message.getAllMessages = function () {
   });
 };
 
-Message.postMessage = function(tempMsg) {
-  db.msgs.push(tempMsg);
+Message.postMessage = function(body) {
+  db.query(" INSERT into messages (user, content, timestamp) VALUES ('"+body.user+" ',' "+body.content+" ',' "+body.timestamp+"');" );
+  // db.msgs.push(tempMsg);
 }
 
 Message.deleteMsgs = function() {
-  db.msgs = [];
+  db.query("truncate messages");
 }
 
 
