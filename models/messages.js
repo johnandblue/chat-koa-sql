@@ -1,11 +1,30 @@
 const dbPath = __dirname + '/db.json';
 const fs = require('fs');
+const Sequelize = require('sequelize');
 const db = require('../config/db.js');
 const Message = {}
 
-// Message.getAll = function() {
-//   return db.msgs;
-// }
+
+const sequelize = new Sequelize(db.messages.name, db.messages.user, db.messages.pass, {
+  host: db.dev.hostname,
+  dialect: 'mysql'|'sqlite'|'postgres'|'mssql',
+
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  },
+});
+
+
+Message.createMsgTable = function (sequelize, DataTypes) {
+  const MsgTable = sequelize.define('Message', {
+    timestamp: DataTypes.BIGINT,
+    content: DataTypes.TEXT
+  }, {timestamps: false});
+
+  return MsgTable;
+};
 
 Message.getAllMessages = function () {
   return new Promise(function (resolve, reject) {
@@ -19,7 +38,6 @@ Message.getAllMessages = function () {
 
 Message.postMessage = function(body) {
   db.query(" INSERT into messages (user, content, timestamp) VALUES ('"+body.user+" ',' "+body.content+" ',' "+body.timestamp+"');" );
-  // db.msgs.push(tempMsg);
 }
 
 Message.deleteMsgs = function() {
@@ -27,8 +45,8 @@ Message.deleteMsgs = function() {
 }
 
 
-// setInterval(function () {
-//   fs.writeFile(dbPath, JSON.stringify(db));
-// }, 5000);
+Message.sequelize = sequelize;
+Message.Sequelize = Sequelize;
+
 
 module.exports = Message;

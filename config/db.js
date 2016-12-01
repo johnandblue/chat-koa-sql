@@ -1,8 +1,13 @@
 
+{
 
-module.exports = require('mysql').createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'password',
-  database : 'testdb'
-});
+	"dev": {
+		"hostname": "localhost",
+		"port": "3000"
+	},
+
+  "messages": {
+    "name": "testdb",
+    "user": "root",
+    "pass": "password"
+}
