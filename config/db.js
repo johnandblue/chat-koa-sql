@@ -1,8 +1,8 @@
 
-
-module.exports = require('mysql').createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'password',
-  database : 'testdb'
-});
+// 
+// module.exports = require('mysql').createConnection({
+//   host     : 'localhost',
+//   user     : 'root',
+//   password : 'password',
+//   database : 'testdb'
+// });
