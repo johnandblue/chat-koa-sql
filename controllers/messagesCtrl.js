@@ -3,6 +3,7 @@
 var Message = require('../models/messages.js')
 const messagesCtrl = {};
 
+// old function--->
 // messagesCtrl.getMessages = function* () {
 //   this.body = Message.getAll();
 // };
