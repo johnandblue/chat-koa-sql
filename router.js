@@ -1,6 +1,4 @@
-
 const router = require('koa-router')();
-
 const messages = require('./controllers/messages.js');
 
 router.get('/messages', messages.getAll);

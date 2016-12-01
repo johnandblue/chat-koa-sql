@@ -3,10 +3,8 @@ const app = require('koa')();
 const fs = require('fs');
 const serve = require('koa-static');
 const bodyParser = require('koa-bodyparser');
-
 const db = require('./config/db.js');
 const router = require('./router.js');
-
 const notFound = fs.readFileSync('./public/404-barbie.html', 'utf8');
 
 app.use(bodyParser());
