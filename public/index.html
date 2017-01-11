@@ -4,13 +4,60 @@
 	<meta charset="utf-8">
 	<title> Chat Bot </title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 	<script src="main.js"></script>
 	<link rel="stylesheet" href="style.css"></link>
 </head>
 
 <body>
+
+
+
+	<div class="modal fade"
+	id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog">
+			<div class="loginmodal-container">
+				<h1>Login to Your Account</h1><br>
+			  <form>
+					<input type="text" name="user" class="log-user" placeholder="Username">
+					<input type="password" name="pass" class="log-password" placeholder="Password">
+					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
+				</form>
+			  <div class="login-help">
+				<a href="#" data-toggle="modal" data-target="#register-modal" data-target="#login-modal">Register</a>
+			  </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade"
+	id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog">
+			<div class="loginmodal-container">
+				<h1>Register Your Account</h1><br>
+				<form>
+					<input type="text" name="user" class="reg-user" placeholder="Username">
+					<input type="password" name="pass" class="reg-password" placeholder="Password">
+					<input type="submit" name="register" class="register loginmodal-submit" value="Register">
+				</form>
+			</div>
+		</div>
+	</div>
+
 	<div class="titleBarbie">
-		<p>Barbie Chat</p>
+
+	<a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+
+	<p>Barbie Chat</p>
 	</div>
 
 	<div class="extChat">

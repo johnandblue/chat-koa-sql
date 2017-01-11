@@ -24,7 +24,7 @@ function parseQuote(response) {
 
 function renderQuote (quote) {
 	let classUser = 'userBallon';
-	console.log(quote.user);
+	// console.log(quote.user);
 	if (quote.user === 'forismatic') classUser = 'userBallon2';
 	$('.chatbox').append('<div class="'+ classUser +'">'+ quote.content + '</div> ');
 }
@@ -42,7 +42,6 @@ $(function () {
 			});
 		}
 	});
-
 
 	$('#send').click(function() {
 
@@ -74,10 +73,9 @@ $(function () {
 
 			}
 		})
-
-
-
 	});
+
+
 	$(".userMsg").keyup(function(event){
 		let chatDiv = document.getElementsByClassName('chatBox')[0];
 		chatDiv.scrollTop = chatDiv.scrollHeight;
@@ -97,4 +95,33 @@ $(function () {
 		});
 		$('.chatbox').html('');
 	});
+
+	$('.login').click(function(e) {
+		let logUsername = $('.log-user').val();
+		let logPassword = $('.log-password').val();
+
+		$.ajax({
+			method: 'POST',
+			url: '/login',
+			data: {
+				user: logUsername,
+				password: logPassword
+			}
+		})
+	})
+
+	$('.register').click(function(e) {
+		let regUsername = $('.reg-user').val();
+		let regPassword = $('.reg-password').val();
+
+		$.ajax({
+			method: 'POST',
+			url: '/register',
+			data: {
+				user: regUsername,
+				password: regPassword
+			}
+		})
+	})
+
 });
