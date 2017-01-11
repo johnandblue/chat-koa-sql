@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
 module.exports = mongoose.model('Login', {
-  user: String,
+  username: String,
   password: String
 });

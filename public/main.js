@@ -104,7 +104,7 @@ $(function () {
 			method: 'POST',
 			url: '/login',
 			data: {
-				user: logUsername,
+				username: logUsername,
 				password: logPassword
 			}
 		})
@@ -116,9 +116,9 @@ $(function () {
 
 		$.ajax({
 			method: 'POST',
-			url: '/register',
+			url: '/users',
 			data: {
-				user: regUsername,
+				username: regUsername,
 				password: regPassword
 			}
 		})

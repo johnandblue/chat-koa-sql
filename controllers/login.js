@@ -1,11 +1,11 @@
 'use strict';
 
 const Login = require('../models/login.js')
-const Register = require('../models/register.js');
+const User = require('../models/user.js');
 
 
 exports.post = function* () {
   const login = new Login(this.request.body);
-  yield console.log(login);
-  this.status = 200;
+  yield Login.find();
+  this.status = 201;
 };
