@@ -7,7 +7,7 @@ const Message = {}
 
 const sequelize = new Sequelize(db.messages.name, db.messages.user, db.messages.pass, {
   host: db.dev.hostname,
-  dialect: 'mysql'|'sqlite'|'postgres'|'mssql',
+  dialect: 'mysql',
 
   pool: {
     max: 5,

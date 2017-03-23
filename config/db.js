@@ -1,6 +1,5 @@
 
-{
-
+module.exports = {
 	"dev": {
 		"hostname": "localhost",
 		"port": "3000"
@@ -10,4 +9,5 @@
     "name": "testdb",
     "user": "root",
     "pass": "password"
+	}
 }
