@@ -1,0 +1,33 @@
+{
+  "name": "chat-koa-sql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnandblue/chat-koa-sql.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnandblue/chat-koa-sql/issues"
+  },
+  "homepage": "https://github.com/johnandblue/chat-koa-sql#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "koa": "^1.2.4",
+    "koa-body": "^1.6.0",
+    "koa-bodyparser": "^2.3.0",
+    "koa-request": "^1.0.0",
+    "koa-response": "^1.0.4",
+    "koa-router": "^5.4.0",
+    "koa-static": "^2.0.0",
+    "mongodb": "^2.2.12",
+    "mongoose": "^4.7.1",
+    "mysql": "^2.12.0",
+    "passport": "^0.3.2"
+  }
+}
