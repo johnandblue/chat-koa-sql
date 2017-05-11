@@ -1,35 +1,16 @@
 'use strict';
 
-var Message = require('../models/messages.js')
-const messagesCtrl = {};
+const Message = require('../models/messages.js')
 
-// old function--->
-// messagesCtrl.getMessages = function* () {
-//   this.body = Message.getAll();
-// };
-
-messagesCtrl.getMessages = function* () {
+exports.getMessages = function* () {
   this.body = yield Message.getAllMessages();
 };
 
-var createMsg = function (body) {
-  let timestamp = Date.now();
-  let user = body.user;
-  let content = body.content;
-  return {
-    timestamp,
-    user,
-    content,
-  };
-}
-
-messagesCtrl.deleteMsgs = function* () {
-  Message.deleteMsgs();
-}
-
-messagesCtrl.postMessage = function* () {
+exports.postMessage = function* () {
   Message.postMessage(this.request.body);
   this.status = 201;
 }
 
-module.exports = messagesCtrl
+exports.deleteMsgs = function* () {
+  Message.deleteMsgs();
+}

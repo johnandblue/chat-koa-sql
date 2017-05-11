@@ -1,52 +1,30 @@
-const dbPath = __dirname + '/db.json';
-const fs = require('fs');
+'use strict';
 const Sequelize = require('sequelize');
 const db = require('../config/db.js');
-const Message = {}
 
-
-const sequelize = new Sequelize(db.messages.name, db.messages.user, db.messages.pass, {
-  host: db.dev.hostname,
-  dialect: 'mysql',
-
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000
+const Message = db.define('message', {
+  user: {
+    type: Sequelize.STRING,
   },
-});
+  content: {
+    type: Sequelize.STRING,
+  },
+  timestamp: {
+    type: Sequelize.STRING,
+  },
+})
 
-
-Message.createMsgTable = function (sequelize, DataTypes) {
-  const MsgTable = sequelize.define('Message', {
-    timestamp: DataTypes.BIGINT,
-    content: DataTypes.TEXT
-  }, {timestamps: false});
-
-  return MsgTable;
+module.exports = {
+  getAllMessages,
+  postMessage,
 };
 
-Message.getAllMessages = function () {
-  return new Promise(function (resolve, reject) {
-    db.query('SELECT* from messages', function (err, rows, fields) {
-      if (err) reject(err);
-      console.log(rows);
-      resolve(rows);
-    });
-  });
-};
-
-Message.postMessage = function(body) {
-  db.query(" INSERT into messages (user, content, timestamp) VALUES ('"+body.user+" ',' "+body.content+" ',' "+body.timestamp+"');" );
+function* getAllMessages () {
+   return Message.findAll()
+   .then(msgs => msgs.map(({user, content, timestamp}) => ({user, content, timestamp})))
 }
 
-Message.deleteMsgs = function() {
-  db.query("truncate messages");
+function postMessage (msg) {
+  Message.create(msg)
+  return msg;
 }
-
-
-Message.sequelize = sequelize;
-Message.Sequelize = Sequelize;
-
-
-module.exports = Message;

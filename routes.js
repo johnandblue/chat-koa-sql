@@ -1,10 +1,5 @@
-var koa = require('koa');
-var router = require('koa-router')();
-var path = require('path');
-var rootPath = path.normalize(__dirname + '/..');
-var controller = require('./controllers/messagesCtrl.js');
-var app = koa();
-router.use(router.routes());
+const router = require('koa-router')();
+const controller = require('./controllers/messagesCtrl.js');
 
 router.get('/messages', controller.getMessages);
 router.post('/messages', controller.postMessage);
