@@ -14,7 +14,9 @@ app.use(function* (next) {
   if (this.status === 404) this.body = notFound;
 });
 
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', () => {
+  console.error('connection error:');
+});
 db.once('open', function() {
   app.listen(3000);
   console.log('Barbie Mongoose connection working...');
